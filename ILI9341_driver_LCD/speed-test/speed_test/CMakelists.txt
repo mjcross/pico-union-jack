@@ -1,0 +1,20 @@
+add_executable(speedTest
+    main.c
+)
+
+include_directories(
+    ../ili9341
+    ../gfx
+)
+
+target_link_libraries(speedTest
+    pico_stdlib
+    ili9341
+    gfx
+)
+
+pico_add_extra_outputs(speedTest)
+
+# stdio --> serial UART
+pico_enable_stdio_usb(speedTest 1)
+pico_enable_stdio_uart(speedTest 0)
